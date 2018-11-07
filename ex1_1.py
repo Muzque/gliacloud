@@ -1,4 +1,22 @@
+def order_pick(files, top):
+    """
+    :type files: list
+    :type top: int
+    """
+    n = 0
+    for k, v in files:
+        if n < top:
+            print(k, v)
+            n += 1
+        else:
+            break
+
+
 def counting(urls):
+    """
+    :type urls: list
+    :rtype: list
+    """
     dc = dict()
     for row in urls:
         file = row.split("/")[-1]
@@ -17,12 +35,9 @@ def main():
         "http://yahoo.com/123/000/c.jpg",
         "http://gliacloud.com/haha.png"
     ]
-    dc = counting(urls)
-    n = 0
-    for k, v in dc:
-        if n < 3:
-            print(k, v)
-            n += 1
+    n = 3
+    ordered_file = counting(urls)
+    order_pick(ordered_file, n)
 
 
 if __name__ == '__main__':

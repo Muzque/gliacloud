@@ -3,6 +3,9 @@ import cgi
 
 
 def build_web(line):
+    """
+    :type line: str
+    """
     print("Content-Type: text/html")
     print()
     print("<html>")

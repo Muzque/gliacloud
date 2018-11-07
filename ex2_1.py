@@ -3,18 +3,31 @@ from bs4 import BeautifulSoup
 
 
 def get_mainweb(board):
+    """
+    :type board: str
+    :rtype:
+    """
     url = "https://www.ptt.cc/bbs/{}/index.html".format(board)
     res = requests.get(url=url)
     return res
 
 
 def get_detail(boardtag):
+    """
+    :type boardtag: str
+    :rtype: float
+    """
     url = "https://www.ptt.cc{}".format(boardtag)
     res = requests.get(url=url)
     return res
 
 
 def etl_content(board, res):
+    """
+    :type board: str
+    :type res:
+    :rtype: list
+    """
     essay_list = list()
     soup = BeautifulSoup(res, "lxml")
     for essay in soup.select(".r-ent"):
