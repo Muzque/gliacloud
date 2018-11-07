@@ -8,8 +8,8 @@ def integrate(fun, start, end):
     area = 0
     while intercept < end:
         intercept += step
-
-        return area
+        area += fun(intercept)*step
+    return area
 
 
 def main():
